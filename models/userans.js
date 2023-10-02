@@ -1,10 +1,14 @@
 const mongoose = require("mongoose");
 const { Exam } = require("../models/exam");
-
+const {User} = require("../models/user")
 const userAnsModel = new mongoose.Schema({
   examId: {
     type: mongoose.Schema.ObjectId,
     ref: "Exam",
+  },
+  user_id:{
+    type: mongoose.Schema.ObjectId,
+    ref: "user",
   },
   ques: [
     {
@@ -39,8 +43,9 @@ const userAnsModel = new mongoose.Schema({
      
     },
   ],
-  Points:{
+  points:{
     type:Number,
+    integer: true,
     default:0
   },
   isPointCal:{
@@ -55,5 +60,6 @@ const userAnsModel = new mongoose.Schema({
 
 // mongoose.model("Exam", Exam);
 mongoose.model("Exam", Exam);
+// mongoose.model("User", User);
 
 module.exports = mongoose.model("Userans", userAnsModel);

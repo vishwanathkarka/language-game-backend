@@ -29,6 +29,10 @@ const examModel = new mongoose.Schema({
                 que:{
                     type:String,
                 },
+                score:{
+                    type:Number,
+                    default:0
+                },
                 options:[
                     {
                         title:{

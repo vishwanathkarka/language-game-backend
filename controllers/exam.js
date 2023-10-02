@@ -6,8 +6,8 @@ const cookieToken = require("../util/cookieToken");
 
 //exam
 exports.addExam = BigPromise(async (req, res, next) => {
-    const { title, language , questions } = req.body;
-    let exam = await Exam.create({ title,language,questions });
+    const { title, language , questions ,description} = req.body;
+    let exam = await Exam.create({ title,language,questions,description});
 
 res.status(200).json({
     success: true,
